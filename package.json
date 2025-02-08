@@ -4,6 +4,11 @@
   "files": [
     "build/**/*"
   ],
+  "exports": {
+    "./errors": "./build/errors/index.js",
+    "./middlewares": "./build/middlewares/index.js",
+    "./nats": "./build/nats/index.js"
+  },
   "scripts": {
     "clean": "del-cli ./build/*",
     "build": "npm run clean && tsc",
