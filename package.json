@@ -5,9 +5,9 @@
     "build/**/*"
   ],
   "exports": {
-    "./errors": "./build/errors/index.js",
-    "./middlewares": "./build/middlewares/index.js",
-    "./nats": "./build/nats/index.js"
+    "./errors/*.js": "./build/errors/*.js",
+    "./middlewares/*.js": "./build/middlewares/*.js",
+    "./nats/*.js": "./build/nats/*.js"
   },
   "scripts": {
     "clean": "del-cli ./build/*",
