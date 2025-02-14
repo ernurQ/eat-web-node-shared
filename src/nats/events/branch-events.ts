@@ -6,7 +6,7 @@ interface Branch {
 	name: string
 	location: string
 	version: number
-	deletedAt: string
+	deletedAt: string | null
 }
 
 export interface BranchCreatedEvent {
