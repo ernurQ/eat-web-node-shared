@@ -4,6 +4,7 @@ interface Company {
 	id: string
 	version: number
 	name: string
+	deletedAt: string
 }
 
 export interface CompanyCreatedEvent {
