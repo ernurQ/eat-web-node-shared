@@ -2,7 +2,7 @@ import { Subjects } from '../subjects'
 
 interface Branch {
 	id: string
-	company_id: string
+	companyId: string
 	name: string
 	location: string
 	version: number
