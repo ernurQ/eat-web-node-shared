@@ -5,6 +5,7 @@ interface User {
 	name: string
 	profilePicture: string
 	version: number
+	deletedAt: string | null
 }
 
 export interface UserCreatedEvent {
