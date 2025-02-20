@@ -15,5 +15,5 @@ export interface UserCreatedEvent {
 
 export interface UserUpdatedEvent {
 	subject: Subjects.UserUpdated
-	data: Pick<User, 'id'>
+	data: User
 }
