@@ -1,4 +1,5 @@
 export enum Subjects {
+	BranchApproved = 'branch:approved',
 	BranchCreated = 'branch:created',
 	BranchUpdated = 'branch:updated',
 	BranchDeleted = 'branch:deleted',

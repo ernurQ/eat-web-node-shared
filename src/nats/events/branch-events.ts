@@ -9,6 +9,16 @@ interface Branch {
 	deletedAt: string | null
 }
 
+export interface BranchApprovedEvent {
+	subject: Subjects.BranchApproved
+	data: {
+		id: string
+		sellerId: string
+		name: string
+		location: string
+	}
+}
+
 export interface BranchCreatedEvent {
 	subject: Subjects.BranchCreated
 	data: Branch
