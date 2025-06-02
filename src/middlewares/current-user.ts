@@ -23,12 +23,16 @@ declare global {
 export const buildCurrentUserMiddleware =
 	(jwtKey: string): RequestHandler =>
 	(req, _res, next) => {
-		if (!req.session?.jwt) {
+		if (!req.headers.authorization) {
 			return next()
 		}
 
 		try {
-			const payload = jwt.verify(req.session.jwt, jwtKey) as JwtPayload
+			const token = req.headers.authorization.split(' ').at(1)
+			if (!token) {
+				return next()
+			}
+			const payload = jwt.verify(token, jwtKey) as JwtPayload
 			req.user = {
 				id: payload.user_id,
 				role: payload.role,
