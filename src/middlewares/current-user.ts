@@ -2,7 +2,12 @@ import { RequestHandler } from 'express'
 import jwt from 'jsonwebtoken'
 import { UserRole } from '../types'
 
-interface UserPayload {
+interface JwtPayload {
+	user_id: string
+	role: UserRole
+}
+
+interface ReqUser {
 	id: string
 	role: UserRole
 }
@@ -10,7 +15,7 @@ interface UserPayload {
 declare global {
 	namespace Express {
 		interface Request {
-			user?: UserPayload
+			user?: ReqUser
 		}
 	}
 }
@@ -23,8 +28,11 @@ export const buildCurrentUserMiddleware =
 		}
 
 		try {
-			const payload = jwt.verify(req.session.jwt, jwtKey) as UserPayload
-			req.user = payload
+			const payload = jwt.verify(req.session.jwt, jwtKey) as JwtPayload
+			req.user = {
+				id: payload.user_id,
+				role: payload.role,
+			}
 		} catch (err) {}
 
 		next()
