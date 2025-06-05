@@ -2,7 +2,7 @@ import { Subjects } from '../subjects'
 
 interface User {
 	id: string
-	name: string
+	fullName: string
 	profilePicture: string
 	version: number
 	deletedAt: string | null
