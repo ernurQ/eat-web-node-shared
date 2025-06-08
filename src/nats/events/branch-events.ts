@@ -7,6 +7,10 @@ interface Branch {
 	location: string
 	version: number
 	deletedAt: string | null
+	locationGeo: {
+		type: string
+		coordinates: [number, number]
+	}
 }
 
 export interface BranchApprovedEvent {
@@ -16,6 +20,10 @@ export interface BranchApprovedEvent {
 		sellerId: string
 		name: string
 		location: string
+		locationGeo: {
+			type: string
+			coordinates: [number, number]
+		}
 	}
 }
 
